@@ -26,10 +26,13 @@ const AddUser: React.FC<AddUserProps> = ({ onAddUser }) => {
       toast.error("Invalid email format");
       return;
     }
-    const res = await axios.post("http://localhost:8080/api/v1/adduser", {
-      email,
-      name,
-    });
+    const res = await axios.post(
+      "https://ranking-app-jdu7.onrender.com/api/v1/adduser",
+      {
+        email,
+        name,
+      }
+    );
     console.log(res.data);
     onAddUser();
     setName("");

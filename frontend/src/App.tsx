@@ -22,7 +22,9 @@ function App() {
   const getUsers = async () => {
     setLoader(true);
     try {
-      const users = await axios.get("http://localhost:8080/api/v1/getalluser");
+      const users = await axios.get(
+        "https://ranking-app-jdu7.onrender.com/api/v1/getalluser"
+      );
       setUsers(users.data);
     } catch (error) {
       console.log(error);
@@ -32,7 +34,9 @@ function App() {
   };
   const getHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/v1/history");
+      const res = await axios.get(
+        "https://ranking-app-jdu7.onrender.com/api/v1/history"
+      );
       setHistory(res.data);
     } catch (error) {
       console.error("Error fetching history:", error);
@@ -54,9 +58,12 @@ function App() {
 
     // Simulate API call delay
     // await new Promise((resolve) => setTimeout(resolve, 1000)); // post claim call here
-    const res = await axios.post("http://localhost:8080/api/v1/claim", {
-      userId,
-    });
+    const res = await axios.post(
+      "https://ranking-app-jdu7.onrender.com/api/v1/claim",
+      {
+        userId,
+      }
+    );
     console.log(res.data);
     const points = res.data?.points;
     // const points = generateRandomPoints();
